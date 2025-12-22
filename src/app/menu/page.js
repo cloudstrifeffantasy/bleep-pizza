@@ -1,8 +1,8 @@
 
 export default async function MenuPage() {
 
-    const res = await fetch("http://localhost:3000/api/menu");
-    const data = await res.json();
+    //const res = await fetch("http://localhost:3000/api/menu");
+    //const data = await res.json();
 
     return (
         <main className="container mx-auto px-4">
