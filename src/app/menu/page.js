@@ -1,8 +1,9 @@
 
 export default async function MenuPage() {
 
+    console.log(process.env.VERCEL_URL);
     const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/menu`, { cache: 'no-store' });
+    const res = await fetch(`https://bleep-pizza.vercel.app/api/menu`, { cache: 'no-store' });
     if (!res.ok) {
         throw new Error('Failed to fetch data');
     }
