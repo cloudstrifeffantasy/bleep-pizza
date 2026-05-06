@@ -1,9 +1,11 @@
 
 // Helper Function
 
+import AddToCartButton from "../components/AddToCartButton";
+
 async function getMenu() {
     const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/menuxxx`, { cache: 'no-store' });
+    const res = await fetch(`${baseUrl}/api/menu`, { cache: 'no-store' });
     if (!res.ok) {
         throw new Error('Failed to fetch menu');
     }
@@ -23,6 +25,8 @@ export default async function MenuPage() {
                 <div key={pizza.id}>
                     <h2>{pizza.name}</h2>
                     <p>{pizza.description}</p>
+                    <p>${pizza.price.toFixed(2)}</p>
+                    <AddToCartButton pizza={pizza} />
                 </div>
             ))}
         </main>
