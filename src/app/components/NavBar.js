@@ -5,7 +5,7 @@ export default function NavBar() {
         <nav className="bg-red-600 text-white p-4">
           <div className="container mx-auto flex justify-between items-center">
             <Link href="/" className="text-2xl font-bold">
-              Bleep Pizza
+              Bleeper Pizza
             </Link>
             <div className="space-x-4">
               <Link href="/" className="hover:text-red-200">
