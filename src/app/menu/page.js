@@ -1,12 +1,19 @@
 
-export default async function MenuPage() {
+// Helper Function
 
+async function getMenu() {
     const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000";
     const res = await fetch(`${baseUrl}/api/menu`, { cache: 'no-store' });
     if (!res.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error('Failed to fetch menu');
     }
-    const data = await res.json();
+    return res.json();
+}
+
+// Menu Page Server Component
+
+export default async function MenuPage() {
+    const data = await getMenu();
 
     return (
         <main className="container mx-auto px-4">
